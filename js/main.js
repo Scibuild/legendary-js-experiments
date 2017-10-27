@@ -8,5 +8,5 @@ function draw() {
 
   fill(map(mouseX,0,width, 0, 255, true),
           map(mouseY,0,height, 0, 255, true), 128);
-  ellipse(mouseX,mouseY,80,80);
+  rect(mouseX,mouseY,80,80);
 }
