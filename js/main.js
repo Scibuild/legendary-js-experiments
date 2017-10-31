@@ -1,12 +1,13 @@
 var spinner;
-var speed = 1;
-var rotation;
+var speed = 10;
+var rotation = 0;
 
 function setup() {
   //create canvas the same size as the window
   createCanvas(window.innerWidth, window.innerHeight);
   spinner = loadImage("/assets/spinner.png");
   noStroke();
+  angleMode(DEGREES);
   //background(0);
 
 }
@@ -17,9 +18,10 @@ function draw() {
   rotate(rotation);
   image(spinner, - spinner.width/4,- spinner.height/4 , spinner.width/2, spinner.height/2);
   //draw ellipse at mouse position
-  speed *= 0.999
-  rotation += speed
+  speed *= 0.999;
+  rotation += speed;
 }
 function mousePressed() {
-  speed += 0.002
+  console.log("Clicked");
+  speed += 2;
 }
