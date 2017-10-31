@@ -1,6 +1,7 @@
 var spinner;
 var speed = 10;
 var rotation = 0;
+var drag = 0.995;
 
 function setup() {
   //create canvas the same size as the window
@@ -12,16 +13,18 @@ function setup() {
 
 }
 function draw() {
+  //handle mouse
+  if (mouseIsPressed) {
+    speed = (pmouseX-mouseX)/10;
+  }
+
+
   background(255);
   translate(width/2, height/2);
   //rotate((millis()*speed) % 360);
   rotate(rotation);
   image(spinner, - spinner.width/4,- spinner.height/4 , spinner.width/2, spinner.height/2);
   //draw ellipse at mouse position
-  speed *= 0.999;
+  speed *= drag;
   rotation += speed;
-}
-function mousePressed() {
-  console.log("Clicked");
-  speed += 2;
 }
